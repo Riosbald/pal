@@ -1,11 +1,3 @@
-/**
- * POST /api/voice/sessions — Create a new voice transcription session
- * 
- * Implements PAL_ARCHITECTURE.md §37: Voice Session API
- * Returns a sessionId for the browser to stream audio chunks to.
- * The server owns the Sahara provider connection (§35, §43: no provider credentials to browser).
- */
-
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getUser } from "@/lib/auth/session";
@@ -15,35 +7,32 @@ import { SaharaVoicePipeline, SaharaAudioConfig } from "@/providers/sahara";
 import { SaharaWebSocketAdapter } from "@/providers/sahara-websocket-adapter";
 import { VoiceDbService } from "@/services/voice/db";
 import { createId } from "@/lib/utils/ids";
+import { AppModeSchema, ConnectivitySchema, DeviceOsSchema, ScreenStateSchema } from "@/core/schemas/mobile-context";
 
 const CreateSessionSchema = z.object({
   workspaceId: z.string().uuid(),
   traceId: z.string().trim().min(1).optional(),
+  appMode: AppModeSchema.default("quick_action"),
+  screenState: ScreenStateSchema.default("unlocked"),
+  connectivity: ConnectivitySchema.default("wifi"),
+  deviceOs: DeviceOsSchema.default("other"),
+  appVersion: z.string().trim().min(1).max(50).default("unknown"),
 });
 
 export async function POST(request: NextRequest) {
   try {
-    // 1. Authentication (PAL_ARCHITECTURE.md §41)
     const user = await getUser();
-    if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // 2. Parse and validate request
-    const body = await request.json();
-    const validation = CreateSessionSchema.safeParse(body);
+    const validation = CreateSessionSchema.safeParse(await request.json());
     if (!validation.success) {
-      return NextResponse.json(
-        { error: "Invalid request", issues: validation.error.issues },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Invalid request", issues: validation.error.issues }, { status: 400 });
     }
 
-    const { workspaceId, traceId } = validation.data;
+    const { workspaceId, traceId, appMode, screenState, connectivity, deviceOs, appVersion } = validation.data;
     const finalTraceId = traceId ?? createId("trace");
-
-    // 3. Verify workspace membership (PAL_ARCHITECTURE.md §41, §42)
     const supabase = await createPalServerClient();
+
     const { data: membership, error: membershipError } = await supabase
       .from("workspace_members")
       .select("role")
@@ -52,13 +41,9 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (membershipError || !membership) {
-      return NextResponse.json(
-        { error: "Workspace not found or access denied" },
-        { status: 403 },
-      );
+      return NextResponse.json({ error: "Workspace not found or access denied" }, { status: 403 });
     }
 
-    // 4. Create Sahara provider adapter (server-side only)
     const env = getServerEnv();
     const adapter = new SaharaWebSocketAdapter({
       endpoint: env.SAHARA_WS_ENDPOINT,
@@ -73,8 +58,6 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // 5. Initialize voice pipeline
-    const dbService = new VoiceDbService(supabase);
     const pipeline = new SaharaVoicePipeline({
       provider: adapter,
       logger: {
@@ -84,20 +67,31 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // 6. Start session with Sahara
-    const session = await pipeline.startSession({
-      traceId: finalTraceId,
-      workspaceId,
+    const session = await pipeline.startSession({ traceId: finalTraceId, workspaceId });
+    await new VoiceDbService(supabase).createSession(session);
+
+    const { error: contextError } = await supabase.from("mobile_contexts").insert({
+      session_id: session.sessionId,
+      workspace_id: workspaceId,
+      app_mode: appMode,
+      screen_state: screenState,
+      connectivity,
+      device_os: deviceOs,
+      app_version: appVersion,
+      risk_baseline: appMode === "field_ops" ? 4 : appMode === "research" || appMode === "health" ? 0 : appMode === "pocket" ? 1 : appMode === "meeting" ? 2 : 3,
     });
 
-    // 7. Persist session to database
-    await dbService.createSession(session);
+    if (contextError) {
+      console.error("[voice] Mobile context persistence failed:", contextError);
+      return NextResponse.json({ error: "Failed to persist mobile session context" }, { status: 500 });
+    }
 
-    // 8. Return session details (PAL_ARCHITECTURE.md §37)
     return NextResponse.json({
       sessionId: session.sessionId,
       traceId: session.traceId,
       status: session.state,
+      transport: { mode: "server_provider_bridge", audioEndpoint: "/api/voice/audio", commitEndpoint: "/api/voice/commit" },
+      appMode,
       config: {
         sampleRate: SaharaAudioConfig.sampleRate,
         channels: SaharaAudioConfig.channels,
@@ -107,7 +101,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("[voice] Session creation failed:", error);
-
     const message = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json({ error: "Failed to create voice session", details: message }, { status: 500 });
   }
