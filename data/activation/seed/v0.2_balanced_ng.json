@@ -1,1 +1,288 @@
-{"package_id":"mimo_pal_activation_seed_v0.2","version":"0.2.0","description":"Expanded balanced seed pcm/yor/ibo/hau from HF + public proverb sources. P1 only — not community ground truth.","languages":["pcm","yor","ibo","hau"],"curated_at":"2026-09-28","expressions":[{"id":"expr_pcm_hustle_pass_001","source_text":"No be who hustle pass na him go get money.","language":"pcm","register":"proverbial","interpretations":[{"type":"literal","content":"It is not the person who hustles the most who will get money.","status":"P1_source_derived"},{"type":"cultural","content":"Effort and financial reward are not necessarily proportional.","status":"P1_source_derived"}],"representation_hints":{"literal_cultural_divergence":true,"demo_state_if_unknown":"POSSIBLE_MEANING_LOSS"},"provenance":{"source_name":"Naija proverbial discourse","source_url_or_ref":"WAZOBIALABS/nigerian-pidgin-voice-text","license_note":"Seed paraphrase","curated_at":"2026-09-28"},"status":"seed","tags":["pcm","demo_gap"]},{"id":"expr_pcm_small_wahala_002","source_text":"Small wahala fit give you big stress.","language":"pcm","register":"proverbial","interpretations":[{"type":"literal","content":"A small problem can give you big stress.","status":"P1_source_derived"},{"type":"cultural","content":"Minor troubles can escalate into serious pressure.","status":"P1_source_derived"}],"representation_hints":{"literal_cultural_divergence":false,"demo_state_if_unknown":"UNDERSTOOD"},"provenance":{"source_name":"BBC Pidgin discourse studies","source_url_or_ref":"Uniben LING materials","license_note":"Public research","curated_at":"2026-09-28"},"status":"seed","tags":["pcm"]},{"id":"expr_yor_eye_house_001","source_text":"A kì í fi ẹyẹlé sọ ilé.","language":"yor","register":"proverbial","interpretations":[{"type":"literal","content":"One does not use a pigeon to watch the house.","status":"P1_source_derived"},{"type":"cultural","content":"Do not entrust heavy responsibilities to someone unreliable.","status":"P1_source_derived"}],"representation_hints":{"literal_cultural_divergence":true,"demo_state_if_unknown":"POSSIBLE_MEANING_LOSS"},"provenance":{"source_name":"saaga/yoruba-cultural-reasoning-blindspots","source_url_or_ref":"https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots","license_note":"MIT","curated_at":"2026-09-28"},"status":"seed","tags":["yor","demo_gap"]},{"id":"expr_pcm_unknown_gap_003","source_text":"Water wey pass gari, e don pass gari.","language":"pcm","register":"idiomatic","interpretations":[{"type":"literal","content":"Water that has passed gari has passed gari.","status":"P1_source_derived"}],"representation_hints":{"literal_cultural_divergence":true,"demo_state_if_unknown":"INSUFFICIENT_KNOWLEDGE"},"provenance":{"source_name":"Internal gap fixture","source_url_or_ref":"internal://fixtures/gap_demo","license_note":"Evaluation only","curated_at":"2026-09-28"},"status":"evaluation","tags":["pcm","gap_fixture"]}]}
+{
+  "package_id": "mimo_pal_activation_seed_v0.2",
+  "version": "0.2.0",
+  "description": "Expanded balanced seed pcm/yor/ibo/hau from HF + public proverb sources. P1 only — not community ground truth.",
+  "languages": ["pcm", "yor", "ibo", "hau"],
+  "curated_at": "2026-09-28",
+  "expressions": [
+    {
+      "id": "expr_pcm_hustle_pass_001",
+      "source_text": "No be who hustle pass na him go get money.",
+      "language": "pcm",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "It is not the person who hustles the most who will get money.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Effort and financial reward are not necessarily proportional.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "Naija proverbial discourse", "source_url_or_ref": "WAZOBIALABS/nigerian-pidgin-voice-text", "license_note": "Seed paraphrase", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["pcm", "demo_gap"]
+    },
+    {
+      "id": "expr_pcm_small_wahala_002",
+      "source_text": "Small wahala fit give you big stress.",
+      "language": "pcm",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "A small problem can give you big stress.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Minor troubles can escalate into serious pressure.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": false, "demo_state_if_unknown": "UNDERSTOOD"},
+      "provenance": {"source_name": "BBC Pidgin discourse studies", "source_url_or_ref": "Uniben LING materials", "license_note": "Public research", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["pcm"]
+    },
+    {
+      "id": "expr_yor_eye_house_001",
+      "source_text": "A kì í fi ẹyẹlé sọ ilé.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "One does not use a pigeon to watch the house.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Do not entrust heavy responsibilities to someone unreliable.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor", "demo_gap"]
+    },
+    {
+      "id": "expr_yor_pig_fence_002",
+      "source_text": "Díẹ̀ díẹ̀ nimú ẹlẹ́dẹ̀ fi ń wọgbà.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "Little by little is how the pig's nose enters the fence.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Gradual persistence achieves what force cannot; small steps compound.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_child_hand_003",
+      "source_text": "Ọwọ́ ọmọdé kò tó pẹpẹ, tàgbàlàgbà kò wọ kèrègbè.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "A child's hand cannot reach the altar shelf; an elder's hand cannot enter a gourd.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Each person has limits and roles; respect capability boundaries.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_ibo_snake_bush_001",
+      "source_text": "Agwọ amaka n'ọhịa ka a na-egbu n'ụlọ",
+      "language": "ibo",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "A snake is beautiful in the bush but is killed in the house.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Context changes value; what is admired at a distance may be dangerous up close.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS", "needs_speaker_review": true},
+      "provenance": {"source_name": "Public Igbo ilu compilations", "source_url_or_ref": "0xnu/igbo-style patterns", "license_note": "Needs speaker review", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["ibo", "needs_speaker_review"]
+    },
+    {
+      "id": "expr_hau_elephant_trunk_001",
+      "source_text": "Giwa ba ta da cizo, hannun nan a ke tsoro.",
+      "language": "hau",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "If an elephant is not bitten, it is the hand one fears.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Power is respected even without immediate harm; caution toward the strong.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS", "needs_speaker_review": true},
+      "provenance": {"source_name": "Public Hausa karin magana lists", "source_url_or_ref": "traditional compilations", "license_note": "Needs speaker review", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["hau", "needs_speaker_review"]
+    },
+    {
+      "id": "expr_hau_bed_mat_002",
+      "source_text": "Mai-gado ya so kwana, mai-tabarma sai shi naɗe.",
+      "language": "hau",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "The bed owner wants to sleep; the mat owner must roll up.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "When the host's priority asserts itself, the guest yields space.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS", "needs_speaker_review": true},
+      "provenance": {"source_name": "Public Hausa karin magana lists", "source_url_or_ref": "traditional compilations", "license_note": "Needs speaker review", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["hau", "needs_speaker_review"]
+    },
+    {
+      "id": "expr_pcm_unknown_gap_003",
+      "source_text": "Water wey pass gari, e don pass gari.",
+      "language": "pcm",
+      "register": "idiomatic",
+      "interpretations": [
+        {"type": "literal", "content": "Water that has passed gari has passed gari.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "INSUFFICIENT_KNOWLEDGE"},
+      "provenance": {"source_name": "Internal gap fixture", "source_url_or_ref": "internal://fixtures/gap_demo", "license_note": "Evaluation only", "curated_at": "2026-09-28"},
+      "status": "evaluation",
+      "tags": ["pcm", "gap_fixture"]
+    },
+    {
+      "id": "expr_yor_anger_cap_004",
+      "source_text": "A kì í bínú orí ká fi fìlà dé ìbàdí.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "One does not get angry at the head and then put the cap on the buttocks.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Do not misdirect a response; address the real issue, not a substitute target.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_stone_market_005",
+      "source_text": "Bí a bá sọ òkò sọ́jà, ará ilé ẹni ní bá.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "If one throws a stone into the market, it may hit a relative.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Harm aimed at the crowd can rebound on your own people; be careful with public blame.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_pot_pepper_006",
+      "source_text": "Ìkòkò tí yóò jẹ ata, ìdí rẹ̀ á gbóná.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "The pot that will eat pepper, its bottom will be hot.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Whoever takes on a hard task must endure the heat that comes with it.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_shame_disease_007",
+      "source_text": "A kì í fi ìtìjú kárùn.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "One does not use shyness to contract disease.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Do not let embarrassment stop you from seeking help or treatment.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_soft_head_008",
+      "source_text": "Orí bẹbẹ lẹgùn ń gùn.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "It is a soft head that the thorn pierces.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Vulnerability invites injury; harden judgment where the environment is sharp.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_palace_fire_009",
+      "source_text": "Ilé ọba tójó ẹwà ló bùkún un.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "When the king's house burns, beauty is what remains of it.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Even after loss, dignity or appearance can still frame how the event is remembered.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_yor_chicken_intestines_010",
+      "source_text": "A kì í rí adìẹ ní ìfun.",
+      "language": "yor",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "One does not find a chicken in the intestines.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Do not expect results that the situation cannot produce; wrong place, wrong outcome.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "saaga/yoruba-cultural-reasoning-blindspots", "source_url_or_ref": "https://huggingface.co/datasets/saaga/yoruba-cultural-reasoning-blindspots", "license_note": "MIT", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["yor"]
+    },
+    {
+      "id": "expr_pcm_monkey_hand_004",
+      "source_text": "Monkey dey work, baboon dey chop.",
+      "language": "pcm",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "The monkey works while the baboon eats.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Those who do the labour are not always those who enjoy the reward.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS"},
+      "provenance": {"source_name": "Naija proverbial discourse", "source_url_or_ref": "widely attested PCM construction", "license_note": "Public discourse", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["pcm"]
+    },
+    {
+      "id": "expr_pcm_softly_softly_005",
+      "source_text": "Softly softly catch monkey.",
+      "language": "pcm",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "Softly softly catch monkey.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Patience and careful approach succeed where haste fails.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": false, "demo_state_if_unknown": "UNDERSTOOD"},
+      "provenance": {"source_name": "Naija / West African English discourse", "source_url_or_ref": "widely attested", "license_note": "Public discourse", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["pcm"]
+    },
+    {
+      "id": "expr_ibo_hand_wash_002",
+      "source_text": "Aka nri kwọọ aka ekpe, aka ekpe akwọọ aka nri.",
+      "language": "ibo",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "If the right hand washes the left, the left washes the right.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Mutual help is reciprocal; community care goes both ways.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": true, "demo_state_if_unknown": "POSSIBLE_MEANING_LOSS", "needs_speaker_review": true},
+      "provenance": {"source_name": "Public Igbo ilu compilations", "source_url_or_ref": "widely attested", "license_note": "Needs speaker review", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["ibo", "needs_speaker_review"]
+    },
+    {
+      "id": "expr_hau_patience_003",
+      "source_text": "Hakuri maganin zaman duniya.",
+      "language": "hau",
+      "register": "proverbial",
+      "interpretations": [
+        {"type": "literal", "content": "Patience is the medicine for living in the world.", "status": "P1_source_derived"},
+        {"type": "cultural", "content": "Endurance is the practical remedy for the difficulties of life.", "status": "P1_source_derived"}
+      ],
+      "representation_hints": {"literal_cultural_divergence": false, "demo_state_if_unknown": "UNDERSTOOD", "needs_speaker_review": true},
+      "provenance": {"source_name": "Public Hausa karin magana lists", "source_url_or_ref": "traditional compilations", "license_note": "Needs speaker review", "curated_at": "2026-09-28"},
+      "status": "seed",
+      "tags": ["hau", "needs_speaker_review"]
+    }
+  ]
+}
