@@ -50,10 +50,10 @@ AssemblyAI POSTs to `/api/activation/analyze` for you.
 
 ## Demo script (judge path)
 
-1. User: *"A kì í fi ẹyẹlé sọ ilé."*
+1. User: *“A kì í fi ẹyẹlé sọ ilé.”*
 2. Agent calls `analyze_expression`.
 3. Result: `POSSIBLE_MEANING_LOSS`.
-4. Agent asks if they mean "don't entrust security to someone unreliable."
+4. Agent asks if they mean “don’t entrust security to someone unreliable.”
 5. User explains → `save_correction` → session_accepted.
 
 ## Env

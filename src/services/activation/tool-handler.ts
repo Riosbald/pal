@@ -23,6 +23,9 @@ export type ToolHandlerResult = {
   result: Record<string, unknown>;
 };
 
+/**
+ * Execute a single tool call by name.
+ */
 export function handleActivationToolCall(raw: unknown): ToolHandlerResult {
   const call = ToolCallSchema.parse(raw);
   const args = call.arguments;
