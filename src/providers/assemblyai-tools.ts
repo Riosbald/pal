@@ -1,6 +1,11 @@
 /**
  * AssemblyAI Voice Agent tool definitions for MÍMO activation.
+ *
  * Format: flat function tools for session.tools / agent config
+ * (see https://assemblyai.com/docs/voice-agents/voice-agent-api/tool-calling)
+ *
+ * HTTP tools: AssemblyAI calls our public URL server-side.
+ * Function tools: client handles tool.call → tool.result.
  */
 
 export type AssemblyAIFunctionTool = {
@@ -14,6 +19,7 @@ export type AssemblyAIFunctionTool = {
   };
   execution_mode?: "interactive" | "hold";
   timeout_seconds?: number;
+  /** Present for server-side HTTP tools */
   http?: {
     url: string;
     method: "POST" | "GET";
@@ -22,6 +28,9 @@ export type AssemblyAIFunctionTool = {
   };
 };
 
+/**
+ * Client-side function tools (your WebSocket handler runs handleActivationToolCall).
+ */
 export function getMimoActivationFunctionTools(): AssemblyAIFunctionTool[] {
   return [
     {
@@ -92,6 +101,10 @@ export function getMimoActivationFunctionTools(): AssemblyAIFunctionTool[] {
   ];
 }
 
+/**
+ * Server-side HTTP tools — AssemblyAI POSTs to your public base URL.
+ * baseUrl must be https (e.g. https://your-app.vercel.app).
+ */
 export function getMimoActivationHttpTools(baseUrl: string): AssemblyAIFunctionTool[] {
   const root = baseUrl.replace(/\/$/, "");
   return [
@@ -126,6 +139,7 @@ export function getMimoActivationHttpTools(baseUrl: string): AssemblyAIFunctionT
   ];
 }
 
+/** System prompt fragment for MÍMO Voice Agent on AssemblyAI. */
 export const MIMO_ASSEMBLYAI_SYSTEM_PROMPT = `You are MÍMO, a culturally careful voice assistant for Nigerian and West African speakers.
 
 Core rules:
