@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import {
   ActivationPackageSchema,
@@ -6,9 +6,17 @@ import {
   type ActivationPackage,
 } from "@/core/schemas/activation";
 
-const DEFAULT_SEED = join("data", "activation", "seed", "v0.1_balanced_ng.json");
+const SEED_V02 = join("data", "activation", "seed", "v0.2_balanced_ng.json");
+const SEED_V01 = join("data", "activation", "seed", "v0.1_balanced_ng.json");
 
-export function loadActivationSeed(seedPath: string = DEFAULT_SEED): ActivationPackage {
+/** Prefer v0.2 (full balanced package); fall back to v0.1. */
+export function resolveDefaultSeedPath(): string {
+  if (existsSync(SEED_V02)) return SEED_V02;
+  if (existsSync(SEED_V01)) return SEED_V01;
+  return SEED_V02;
+}
+
+export function loadActivationSeed(seedPath: string = resolveDefaultSeedPath()): ActivationPackage {
   const raw = readFileSync(seedPath, "utf8");
   return ActivationPackageSchema.parse(JSON.parse(raw) as unknown);
 }

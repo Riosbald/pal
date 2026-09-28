@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Riosbald/pal/data/activation/schemas/expression.schema.json",
+  "title": "MIMOActivationExpression",
+  "type": "object",
+  "required": ["id", "source_text", "language", "interpretations"],
+  "properties": {
+    "id": { "type": "string" },
+    "source_text": { "type": "string", "minLength": 1 },
+    "language": { "type": "string", "enum": ["pcm", "yor", "ibo", "hau", "en"] },
+    "register": { "type": "string" },
+    "interpretations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "content", "status"],
+        "properties": {
+          "type": { "type": "string", "enum": ["literal", "cultural", "contextual"] },
+          "content": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["P0_model_hypothesis", "P1_source_derived", "P2_human_reviewed", "P3_community_validated"]
+          }
+        }
+      }
+    },
+    "representation_hints": {
+      "type": "object",
+      "properties": {
+        "literal_cultural_divergence": { "type": "boolean" },
+        "demo_state_if_unknown": {
+          "type": "string",
+          "enum": ["UNDERSTOOD", "POSSIBLE_MEANING_LOSS", "INSUFFICIENT_KNOWLEDGE"]
+        },
+        "needs_speaker_review": { "type": "boolean" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source_type": { "type": "string" },
+        "source_ref": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

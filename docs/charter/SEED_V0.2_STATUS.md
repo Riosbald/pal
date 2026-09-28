@@ -1,12 +1,8 @@
-# Activation seed v0.2 status
+# SEED_V0.2_STATUS
 
-- **Package:** `mimo_pal_activation_seed_v0.2` (also written to `v0.1_balanced_ng.json` for loader compatibility)
-- **Count:** 20 expressions
-- **Balance:** yor 10 \u00b7 pcm 5 \u00b7 hau 3 \u00b7 ibo 2
-- **Sources:** saaga/yoruba-cultural-reasoning-blindspots (MIT), 0xnu/igbo, public Hausa karin magana lists, Naija PCM discourse
-- **Status ladder:** all interpretations **P1_source_derived** unless tagged `needs_speaker_review`
-- **Not:** community-validated ground truth; not training weights
-
-## Deferred
-
-- Live AssemblyAI WebSocket session harness (remind later)
+- **Package:** `mimo_pal_activation_seed_v0.2`
+- **Expressions:** 20 (pcm 5, yor 10, ibo 2, hau 3)
+- **Status:** all interpretations P1_source_derived
+- **Default loader path:** `data/activation/seed/v0.2_balanced_ng.json`
+- **Not:** training corpus, community ground truth, or complete language coverage
+- Igbo/Hausa entries may carry `needs_speaker_review` in provenance notes
