@@ -5,8 +5,8 @@
 | Name | Meaning |
 |------|---------|
 | **MÍMO** | Product (voice → understanding → optional draft action) |
-| **PAL** | Proverb Activation Library (activation / ontology layer) |
-| Instant-On | Nine mobile/voice application surfaces |
+| **PAL Activation Library** | Seed knowledge store (expressions, provenance P0–P3) — not the product brand |
+| **PAL Instant-On** | Nine mobile/voice application surfaces (execution drafts under policy) |
 | Cognitive Protocol | Capability-assurance layer (measurement / friction) — parallel product concern |
 
 ## Layers
@@ -20,3 +20,13 @@
 ## Rule
 
 No module writes CRM/ledger/reminders without representation audit + policy + human approval.
+
+## Position vs lock
+
+This sync document describes architecture and naming. It does **not** claim a commercial or technical moat.
+
+See `NICHE_POSITION.md` for empirical conditions (false-UNDERSTOOD, action leakage, out-of-session correction, design partner, etc.).
+
+## Sakana (process only)
+
+Specialize with curated data per language/community; invest in domain benchmarks before training; failures → tests → human-gated change. Do not unify Africa into one cultural embedding.
